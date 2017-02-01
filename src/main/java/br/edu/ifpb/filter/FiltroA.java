@@ -2,6 +2,7 @@ package br.edu.ifpb.filter;
 
 import java.io.IOException;
 
+import javax.servlet.DispatcherType;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -10,7 +11,11 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 
-@WebFilter(urlPatterns={"/a.do","/b.do"})
+@WebFilter(
+		urlPatterns={"/a.do","/b.do"},
+		dispatcherTypes = {
+				DispatcherType.REQUEST,
+				DispatcherType.FORWARD})
 public class FiltroA implements Filter{
 
 	public void destroy() {
